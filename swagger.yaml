@@ -1,0 +1,172 @@
+swagger: "2.0"
+info:
+  description: "Student enrollment service"
+  version: "1.0.0"
+  title: "Student enrollment"
+host: "student.beanscode.io"
+basePath: "/v2"
+tags:
+- name: "student"
+  description: "Student enrollment endpoints"
+  externalDocs:
+    description: "Git url"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+paths:
+  /student:
+    post:
+      tags:
+      - "student"
+      summary: "Add a new student"
+      description: ""
+      operationId: "addStudent"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Student to enroll"
+        required: true
+        schema:
+          $ref: "#/definitions/Student"
+      responses:
+        405:
+          description: "Method not allowed"
+        500:
+          description: "Invalid Input"
+        200:
+          description: "Student updated"
+    put:
+      tags:
+      - "student"
+      summary: "Update an existing student"
+      description: ""
+      operationId: "updateStudent"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Student object need to update"
+        required: true
+        schema:
+         type: object
+         properties:
+          id:
+            type: "integer"
+            example: 23454
+          class:
+            type: "string"
+            example: "3 C"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Student updated"
+    delete:
+      tags:
+      - "student"
+      summary: "Deletes a student"
+      description: ""
+      operationId: "deleteStudent"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Student object need to delete"
+        required: true
+        schema:
+         type: object
+         properties:
+          id:
+            type: "integer"
+            example: 23454
+      responses:
+        200:
+          description: "Student deleted"
+        400:
+          description: "Invalid ID supplied"
+        404:
+          description: "Pet not found"
+  /fetchStudents:
+    get:
+      tags:
+      - "student"
+      summary: "Finds students by multiple options"
+      description: "Multiple status values can be provided with comma separated strings"
+      operationId: "findStudentsByStatus"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Id"
+        in: "query"
+        description: "find by id of the student"
+        type: "integer"
+      - name: "class"
+        in: "query"
+        description: "Find students by class"
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: '#/definitions/Student'
+        400:
+          description: "Invalid status value"
+definitions:
+  Student:
+    type: "object"
+    required:
+    - "id"
+    - "firstName"
+    - "lastName"
+    - "class"
+    - "nationality"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      firstName:
+        type: "string"
+        example: "mike"
+      lastName:
+        type: "string"
+        example: "wong"
+      class:
+        type: "string"
+        example: "3 A"      
+      nationality:
+        type: "string"
+        example: "Singapore"  
+    xml:
+      name: "Student"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
