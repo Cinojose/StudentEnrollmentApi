@@ -48,6 +48,7 @@ func configureAPI(api *operations.StudentEnrollmentAPI) http.Handler {
 	api.StudentAddStudentHandler = student.AddStudentHandlerFunc(studenthandlerobj.AddStudentHandler)
 	api.StudentUpdateStudentHandler = student.UpdateStudentHandlerFunc(studenthandlerobj.UpdateStudentHandler)
 	api.StudentDeleteStudentHandler = student.DeleteStudentHandlerFunc(studenthandlerobj.DeleteStudentHandler)
+	api.StudentFindStudentsByStatusHandler = student.FindStudentsByStatusHandlerFunc(studenthandlerobj.FindStudentsHandler)
 
 	if api.StudentAddStudentHandler == nil {
 		api.StudentAddStudentHandler = student.AddStudentHandlerFunc(func(params student.AddStudentParams) middleware.Responder {
