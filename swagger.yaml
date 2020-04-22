@@ -3,7 +3,6 @@ info:
   description: "Student enrollment service"
   version: "1.0.0"
   title: "Student enrollment"
-host: "student.beanscode.io"
 basePath: "/v2"
 tags:
 - name: "student"
