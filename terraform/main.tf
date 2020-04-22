@@ -64,7 +64,7 @@ data "template_file" "userdata" {
   template = "${file("${path.module}/startup.sh.tpl")}"
   vars = {
     mysql_image_name = "student-mysql"
-    mysql_password = "dolphins"
+    mysql_password = "XXXXXXXXX"
   }
 }
 
