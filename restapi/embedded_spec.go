@@ -256,7 +256,7 @@ func init() {
       "name": "student",
       "externalDocs": {
         "description": "Git url",
-        "url": "http://swagger.io"
+        "url": "https://github.com/Cinojose/StudentEnrollmentApi"
       }
     }
   ],
@@ -504,7 +504,7 @@ func init() {
       "name": "student",
       "externalDocs": {
         "description": "Git url",
-        "url": "http://swagger.io"
+        "url": "https://github.com/Cinojose/StudentEnrollmentApi"
       }
     }
   ],

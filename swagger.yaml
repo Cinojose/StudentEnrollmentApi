@@ -9,7 +9,7 @@ tags:
   description: "Student enrollment endpoints"
   externalDocs:
     description: "Git url"
-    url: "http://swagger.io"
+    url: "https://github.com/Cinojose/StudentEnrollmentApi"
 schemes:
 - "https"
 - "http"

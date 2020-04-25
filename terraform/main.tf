@@ -38,7 +38,7 @@ data "http" "myip" {
 resource "aws_security_group" "allow_home_ip" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  #vpc_id      = "${aws_vpc.main.id}"
+  vpc_id      = "vpc-005c99ccac826669a"
 
   ingress {
     description = "Default API port"
@@ -99,6 +99,7 @@ resource "aws_instance" "webserver" {
    key_name =  "${aws_key_pair.web-server-key.key_name}"
    //  Security group
    vpc_security_group_ids = ["${aws_security_group.allow_home_ip.id}"]
+   subnet_id = "subnet-0018da354bb21b61c"
    tags = {
     Name = "StudentEntollmentAPI"
   }
