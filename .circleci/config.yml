@@ -22,4 +22,5 @@ jobs:
       - checkout
 
       # specify any bash command here prefixed with `run: `
-      - run: docker build -t studentenrollment .
+      - run: go build ./cmd/student-enrollment-api-server
+      - run: mv ./student-enrollment-api-server /usr/bin/student-enrollment-api-server
