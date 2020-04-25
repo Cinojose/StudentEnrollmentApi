@@ -1,7 +1,7 @@
 // AWS provider
 
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-southeast-1"
 }
 
 terraform {
@@ -47,6 +47,20 @@ resource "aws_security_group" "allow_home_ip" {
     protocol    = "tcp"
     cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
   }
+  ingress {
+    description = "Default SSH port"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
+  }
+  ingress {
+    description = "Default SSH port"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["${chomp(data.http.myip.body)}/32"]
+  }
 
   egress {
     from_port   = 0
@@ -65,7 +79,7 @@ data "template_file" "userdata" {
   vars = {
     mysql_image_name = "student-mysql"
     mysql_password = "XXXXXXXXX"
-  }
+  }   
 }
 
 // Create a key to attach to the instance
@@ -80,10 +94,11 @@ resource "aws_instance" "webserver" {
    instance_type = "t2.micro"
    // user data
    user_data = "${data.template_file.userdata.rendered}"
+   //
    // key to login
    key_name =  "${aws_key_pair.web-server-key.key_name}"
    //  Security group
-   security_groups = ["${aws_security_group.allow_home_ip.id}"]
+   vpc_security_group_ids = ["${aws_security_group.allow_home_ip.id}"]
    tags = {
     Name = "StudentEntollmentAPI"
   }

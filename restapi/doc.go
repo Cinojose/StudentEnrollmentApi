@@ -6,7 +6,7 @@
 //  Schemes:
 //    http
 //    https
-//  Host: student.beanscode.io
+//  Host: localhost
 //  BasePath: /v2
 //  Version: 1.0.0
 //

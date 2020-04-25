@@ -28,7 +28,6 @@ func init() {
     "title": "Student enrollment",
     "version": "1.0.0"
   },
-  "host": "student.beanscode.io",
   "basePath": "/v2",
   "paths": {
     "/fetchStudents": {
@@ -277,7 +276,6 @@ func init() {
     "title": "Student enrollment",
     "version": "1.0.0"
   },
-  "host": "student.beanscode.io",
   "basePath": "/v2",
   "paths": {
     "/fetchStudents": {
