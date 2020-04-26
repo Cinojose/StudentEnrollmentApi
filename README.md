@@ -1,3 +1,5 @@
+![Build Status](https://codebuild.ap-southeast-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiUWlHeDJVZlBkSUpGZzYzMDNsTVN0U01UWVc4a1hZZFBsVTBvdlhRRDJHVzJLa1AyYjVRVXJWL3oyN2hjdmJPY3BaSGV4WlptaVJjYjd4YUlYdUhrQVdnPSIsIml2UGFyYW1ldGVyU3BlYyI6IjBBUkNFVlFCOW51cll6djUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+
 ## Student Enrollment Api Server
 
 A student enrollment api server using [Go Swagger](https://goswagger.io/)
