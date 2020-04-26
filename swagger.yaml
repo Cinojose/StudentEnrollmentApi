@@ -11,7 +11,6 @@ tags:
     description: "Git url"
     url: "https://github.com/Cinojose/StudentEnrollmentApi"
 schemes:
-- "https"
 - "http"
 paths:
   /student:
