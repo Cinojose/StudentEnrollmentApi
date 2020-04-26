@@ -2,9 +2,17 @@
 
 A student enrollment api server using [Go Swagger](https://goswagger.io/)
 
+# Prerequisites
+
+* Running mysql database with a table created based on the sql/student.sql
+* Docker engine
+
+
 # How to run ?
 
 ```bash
+ # Download source code
+  git clone https://github.com/Cinojose/StudentEnrollmentApi.git
  #setup the env variables
   export DB_USER=<db-user>
   export DB_PASSWORD=<db-password>
