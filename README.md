@@ -1,5 +1,7 @@
 ## Student Enrollment Api Server
 
+A student enrollment api server using (Go Swagger)[https://goswagger.io/]
+
 # How to run ?
 
 ```bash
@@ -7,7 +9,7 @@
   docker run -it -p 8001:8001 studentenrollment
 ```
 
-# Swagger Setup
+# Generating server stub using swagger
 ```bash
    # Generate a server stub using the swagger yml
    cd github.com/StudentEntollmentApi
@@ -16,3 +18,6 @@
    swagger generate server -f swagger.yaml -A StudentEnrollmentApi
    # Run the above docker commands to build the code
 ```
+
+# How app is getting deployed
+![CICD diagram](/studentenrollment.png)
