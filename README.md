@@ -1,12 +1,35 @@
 ## Student Enrollment Api Server
 
-A student enrollment api server using (Go Swagger)[https://goswagger.io/]
+A student enrollment api server using [Go Swagger](https://goswagger.io/)
 
 # How to run ?
 
 ```bash
+ #setup the env variables
+  export DB_USER=<db-user>
+  export DB_PASSWORD=<db-password>
+  export DB_NAME=<database-name>
+  export DB_HOST=<database-host-address>
+ # build the docker image
   docker build -t studentenrollment .
-  docker run -it -p 8001:8001 studentenrollment
+ # Run the docker image
+  docker run -it -p 8001:8001 --env DB_USER --env DB_PASSWORD --env DB_NAME --env DB_HOST studentenrollment studentenrollment 
+ # The app can  be accessed via following URL upon successful run
+ # http://localhost:8001/internal/apidocs
+```
+
+# How to run tests ?
+
+Start the APP server using the above instructions
+
+```bash
+   # set up the env variables
+   export API_PORT=<aplication port>
+   export API_HOST=<application-host>
+
+   # Build and run docker
+   docker build -t unitest -f DockerfileTest . && docker rm unitest && docker run -it --env API_HOST --env API_PORT--name unitest unitest
+   
 ```
 
 # Generating server stub using swagger
@@ -19,5 +42,6 @@ A student enrollment api server using (Go Swagger)[https://goswagger.io/]
    # Run the above docker commands to build the code
 ```
 
-# How app is getting deployed
+# App Deployment
+
 ![CICD diagram](/studentenrollment.png)

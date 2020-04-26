@@ -1,0 +1,19 @@
+FROM golang:1.14.2-alpine AS tester
+
+# Setting Workdir
+WORKDIR  /go/src/github.com/Cinojose/StudentEnrollment/
+
+COPY go.sum go.mod ./
+RUN go mod download
+
+# Copy source code
+COPY ./cmd ./cmd
+COPY ./models ./models
+COPY ./restapi ./restapi
+COPY ./test ./test
+
+
+ENV CGO_ENABLED 0
+
+
+CMD ["go", "test", "-v", "./...", "./..."]
